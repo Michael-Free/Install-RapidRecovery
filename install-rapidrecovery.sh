@@ -1,10 +1,10 @@
-
+#!/bin/bash
 ## file name of deb
-agent_pkg = "rapidrecovery-repo-6.7.0.387-debian8-x86_64.deb"
+agent_pkg="rapidrecovery-repo-6.7.0.387-debian8-x86_64.deb"
 # Username for protected user
 user_to_check="myuser"
 # Ports for the RapidRecovery Agent
-rr_ports = ("8006" "8009")
+rr_ports=("8006" "8009")
 
 # Checking to see if this script is running as root.
 if [[ $(id -u) -ne 0 ]]; then
