@@ -47,6 +47,7 @@ if ! command -v ufw &> /dev/null; then
     if command -v apt-get &> /dev/null; then
         apt-get update
         apt-get install -y ufw
+        ufw enable
     else
         echo "Error: Package manager not supported. Exiting."
         exit 1
@@ -70,10 +71,10 @@ for port in "${rr_ports[@]}"; do
 done
 
 # Add user to Recovery Group
-rapidrecovery-config -u $user_to_check
+rapidrecovery-config -u $user_to_check &&
 
 # Install all kernel modules
-rapidrecovery-config -m all
+rapidrecovery-config -m all &&
 
 # start agent
 rapidrecovery-config -s
